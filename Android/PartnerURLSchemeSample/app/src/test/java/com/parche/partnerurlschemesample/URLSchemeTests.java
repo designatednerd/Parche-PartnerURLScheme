@@ -2,10 +2,10 @@ package com.parche.partnerurlschemesample;
 
 import android.content.*;
 import android.content.pm.*;
-import android.support.test.runner.AndroidJUnit4;
+//import android.support.test.runner.AndroidJUnit4;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+//import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.*;
  * http://stackoverflow.com/a/20514589/681493
  */
 
-@RunWith(AndroidJUnit4.class)
+//@RunWith(AndroidJUnit4.class)
 public class URLSchemeTests {
 
     private static final String TEST_API_KEY = "FAKE_API_KEY";
