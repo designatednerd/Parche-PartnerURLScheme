@@ -9,9 +9,11 @@
 #import "ViewController.h"
 
 #import "PARPartnerURLSchemeHelper.h"
+#import "StagingDiscountGenerator.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *canOpenLabel;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 @end
 
@@ -55,6 +57,32 @@
         [self showNotInstalledAlert];
     }
 }
+
+- (IBAction)openAppWithStagingDiscount
+{
+    if ([self.loadingSpinner isAnimating]) {
+        //A request is already in progress.
+        return;
+    }
+    
+    [self.loadingSpinner startAnimating];
+    __weak typeof(self) weakSelf = self;
+    [StagingDiscountGenerator requestStagingDiscountWithCompletion:^(NSString *discountCode, NSString *apiKey, NSString *memberNumber, NSError *error) {
+        [weakSelf.loadingSpinner stopAnimating];
+        if (error) {
+            [weakSelf showSimpleAlertVCWithTitle:@"Error" message:error.localizedDescription];
+        } else {
+            if (![PARPartnerURLSchemeHelper openParcheAndRequestDiscountForUser:memberNumber
+                                                                   discountCode:discountCode
+                                                                         apiKey:apiKey]) {
+                [weakSelf showNotInstalledAlert];
+            } //else: it worked!
+        }
+    }];
+}
+
+
+#pragma mark - Alerts
 
 - (void)showNotInstalledAlert
 {

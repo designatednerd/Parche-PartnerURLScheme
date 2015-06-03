@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -82,25 +82,42 @@
                                     <constraint firstAttribute="bottom" secondItem="N60-2M-2hu" secondAttribute="bottom" constant="20" id="vvY-lx-UdC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3B9-DY-ExP">
+                                <rect key="frame" x="177" y="337" width="247" height="30"/>
+                                <state key="normal" title="Open Parche With Staging Discount">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openAppWithStagingDiscount" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fcl-Lj-CgC"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZTW-zV-T40">
+                                <rect key="frame" x="432" y="342" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZTW-zV-T40" firstAttribute="leading" secondItem="3B9-DY-ExP" secondAttribute="trailing" constant="8" id="4kL-zj-YYK"/>
                             <constraint firstItem="8uc-id-dgY" firstAttribute="top" secondItem="6qO-ak-zP6" secondAttribute="bottom" constant="8" symbolic="YES" id="5wl-Ck-tAh"/>
                             <constraint firstItem="sl2-rz-Ntj" firstAttribute="centerX" secondItem="vCw-Sm-PPb" secondAttribute="centerX" id="Bvl-sC-Biw"/>
                             <constraint firstItem="vCw-Sm-PPb" firstAttribute="trailing" secondItem="UWH-c9-Arn" secondAttribute="trailing" id="Lbo-aE-hfx"/>
                             <constraint firstItem="vCw-Sm-PPb" firstAttribute="leading" secondItem="UWH-c9-Arn" secondAttribute="leading" id="Msi-h1-qYQ"/>
+                            <constraint firstItem="3B9-DY-ExP" firstAttribute="centerY" secondItem="ZTW-zV-T40" secondAttribute="centerY" id="N4a-Y0-PE4"/>
                             <constraint firstItem="sl2-rz-Ntj" firstAttribute="top" secondItem="8uc-id-dgY" secondAttribute="bottom" constant="16" id="Oc8-SA-1SG"/>
                             <constraint firstItem="6qO-ak-zP6" firstAttribute="centerX" secondItem="8uc-id-dgY" secondAttribute="centerX" id="QtO-kB-xDO"/>
                             <constraint firstItem="6qO-ak-zP6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="T24-24-PNP"/>
+                            <constraint firstAttribute="centerX" secondItem="3B9-DY-ExP" secondAttribute="centerX" id="VsO-0x-sBa"/>
                             <constraint firstItem="UWH-c9-Arn" firstAttribute="top" secondItem="vCw-Sm-PPb" secondAttribute="bottom" constant="16" id="ZnV-7E-08a"/>
                             <constraint firstItem="UWH-c9-Arn" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="eMU-FS-d0b"/>
                             <constraint firstItem="sl2-rz-Ntj" firstAttribute="centerX" secondItem="8uc-id-dgY" secondAttribute="centerX" id="kQw-qH-uch"/>
                             <constraint firstItem="vCw-Sm-PPb" firstAttribute="top" secondItem="sl2-rz-Ntj" secondAttribute="bottom" constant="17" id="kaY-y3-zkQ"/>
+                            <constraint firstItem="3B9-DY-ExP" firstAttribute="top" secondItem="UWH-c9-Arn" secondAttribute="bottom" constant="16" id="loQ-na-vPF"/>
                             <constraint firstItem="8uc-id-dgY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="4" id="p2C-M4-58z"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="canOpenLabel" destination="N60-2M-2hu" id="y0L-2I-Yaf"/>
+                        <outlet property="loadingSpinner" destination="ZTW-zV-T40" id="qCG-EV-2z9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

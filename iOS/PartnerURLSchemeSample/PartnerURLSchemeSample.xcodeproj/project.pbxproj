@@ -15,8 +15,9 @@
 		3342B2661AA641840094C157 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3342B2641AA641840094C157 /* LaunchScreen.xib */; };
 		3342B2721AA641840094C157 /* PartnerURLSchemeSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3342B2711AA641840094C157 /* PartnerURLSchemeSampleTests.m */; };
 		3342B27E1AA641BF0094C157 /* PARPartnerURLSchemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3342B27D1AA641BF0094C157 /* PARPartnerURLSchemeHelper.m */; };
-		3342B2841AA65BD60094C157 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3342B2831AA65BD60094C157 /* OCMockitoIOS.framework */; };
-		3342B2861AA65BE50094C157 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3342B2851AA65BE50094C157 /* OCHamcrestIOS.framework */; };
+		3374A3DD1B1F6CCE0053D330 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3374A3DB1B1F6CCE0053D330 /* OCHamcrestIOS.framework */; };
+		3374A3DE1B1F6CCE0053D330 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3374A3DC1B1F6CCE0053D330 /* OCMockitoIOS.framework */; };
+		33D509AC1B1F659200592D55 /* StagingDiscountGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D509AB1B1F659200592D55 /* StagingDiscountGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +46,11 @@
 		3342B2711AA641840094C157 /* PartnerURLSchemeSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PartnerURLSchemeSampleTests.m; sourceTree = "<group>"; };
 		3342B27C1AA641BF0094C157 /* PARPartnerURLSchemeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARPartnerURLSchemeHelper.h; sourceTree = "<group>"; };
 		3342B27D1AA641BF0094C157 /* PARPartnerURLSchemeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARPartnerURLSchemeHelper.m; sourceTree = "<group>"; };
-		3342B2831AA65BD60094C157 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
-		3342B2851AA65BE50094C157 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		3342B2871AA65EFB0094C157 /* PARPartnerURLSchemeHelper+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PARPartnerURLSchemeHelper+Testing.h"; sourceTree = "<group>"; };
+		3374A3DB1B1F6CCE0053D330 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		3374A3DC1B1F6CCE0053D330 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
+		33D509AA1B1F659200592D55 /* StagingDiscountGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StagingDiscountGenerator.h; sourceTree = "<group>"; };
+		33D509AB1B1F659200592D55 /* StagingDiscountGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StagingDiscountGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3342B2841AA65BD60094C157 /* OCMockitoIOS.framework in Frameworks */,
-				3342B2861AA65BE50094C157 /* OCHamcrestIOS.framework in Frameworks */,
+				3374A3DD1B1F6CCE0053D330 /* OCHamcrestIOS.framework in Frameworks */,
+				3374A3DE1B1F6CCE0053D330 /* OCMockitoIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +98,8 @@
 				3342B25A1AA641840094C157 /* AppDelegate.m */,
 				3342B25C1AA641840094C157 /* ViewController.h */,
 				3342B25D1AA641840094C157 /* ViewController.m */,
+				33D509AA1B1F659200592D55 /* StagingDiscountGenerator.h */,
+				33D509AB1B1F659200592D55 /* StagingDiscountGenerator.m */,
 				3342B25F1AA641840094C157 /* Main.storyboard */,
 				3342B2621AA641840094C157 /* Images.xcassets */,
 				3342B2641AA641840094C157 /* LaunchScreen.xib */,
@@ -126,8 +131,8 @@
 		3342B26F1AA641840094C157 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3342B2851AA65BE50094C157 /* OCHamcrestIOS.framework */,
-				3342B2831AA65BD60094C157 /* OCMockitoIOS.framework */,
+				3374A3DB1B1F6CCE0053D330 /* OCHamcrestIOS.framework */,
+				3374A3DC1B1F6CCE0053D330 /* OCMockitoIOS.framework */,
 				3342B2701AA641840094C157 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -242,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D509AC1B1F659200592D55 /* StagingDiscountGenerator.m in Sources */,
 				3342B25E1AA641840094C157 /* ViewController.m in Sources */,
 				3342B27E1AA641BF0094C157 /* PARPartnerURLSchemeHelper.m in Sources */,
 				3342B25B1AA641840094C157 /* AppDelegate.m in Sources */,
@@ -390,8 +396,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/ellenshapiro/Downloads/OCHamcrest-4.0.1",
-					"/Users/ellenshapiro/Downloads/OCMockito-1.4.0",
 					"$(PROJECT_DIR)/PartnerURLSchemeSampleTests",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -418,8 +422,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/ellenshapiro/Downloads/OCHamcrest-4.0.1",
-					"/Users/ellenshapiro/Downloads/OCMockito-1.4.0",
 					"$(PROJECT_DIR)/PartnerURLSchemeSampleTests",
 				);
 				INFOPLIST_FILE = PartnerURLSchemeSampleTests/Info.plist;
@@ -454,6 +456,7 @@
 				3342B2771AA641840094C157 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3342B2781AA641840094C157 /* Build configuration list for PBXNativeTarget "PartnerURLSchemeSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +465,7 @@
 				3342B27A1AA641840094C157 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
