@@ -1,6 +1,7 @@
 package com.parche.partnerurlschemesample;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +11,11 @@ import android.widget.TextView;
 import butterknife.*;
 import com.parche.helperlib.ParchePartnerURLSchemeHelper;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements StagingDiscountGenerator.StagingDiscountListener {
 
     @InjectView(R.id.can_open_textview) TextView mCanOpenTextView;
+
+    ProgressDialog mProgressDialog;
 
     /**********************
      * ACTIVITY LIFECYCLE *
@@ -42,6 +45,23 @@ public class MainActivity extends ActionBarActivity {
                 .show();
     }
 
+    private void showAlert(String aTitle, String aMessage) {
+        new AlertDialog.Builder(this)
+                .setTitle(aTitle)
+                .setMessage(aMessage)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+    }
+
+    private void showNotInstalledAlert() {
+        showAlert(R.string.not_installed_alert_title, R.string.not_installed_alert_message);
+    }
+
     /*********************
      * ONCLICK LISTENERS *
      *********************/
@@ -63,7 +83,7 @@ public class MainActivity extends ActionBarActivity {
     public void openWithoutDiscount() {
         Intent openIntent = ParchePartnerURLSchemeHelper.openParcheIntent(this, "FAKE_API_KEY");
         if (openIntent == null) {
-            showAlert(R.string.not_installed_alert_title, R.string.not_installed_alert_message);
+            showNotInstalledAlert();
         } else {
             startActivity(openIntent);
         }
@@ -73,9 +93,40 @@ public class MainActivity extends ActionBarActivity {
     public void openWithFakeDiscount() {
         Intent openIntent = ParchePartnerURLSchemeHelper.openParcheAndRequestDiscount(this, "FAKE_DISCOUNT_CODE", "Partner User ID", "FAKE_API_KEY");
         if (openIntent == null) {
-            showAlert(R.string.not_installed_alert_title, R.string.not_installed_alert_message);
+            showNotInstalledAlert();
         } else {
             startActivity(openIntent);
         }
     }
+
+    @OnClick(R.id.open_staging_discount_button)
+    public void openWithStagingDiscount() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setTitle(R.string.getting_discount);
+        mProgressDialog.show();
+        StagingDiscountGenerator generator = new StagingDiscountGenerator(this);
+        generator.execute();
+    }
+
+    /*****************************
+     * STAGING DISCOUNT LISTENER *
+     *****************************/
+
+    @Override
+    public void errorGettingDiscount(String errorDescription) {
+        mProgressDialog.hide();
+        showAlert("ERRORZ", errorDescription);
+    }
+
+    @Override
+    public void gotDiscount(String aDiscount, String aAPIKey, String aUsername) {
+        mProgressDialog.hide();
+        Intent openWithStagingDiscountIntent = ParchePartnerURLSchemeHelper.openParcheAndRequestDiscount(this, aDiscount, aUsername, aAPIKey);
+        if (openWithStagingDiscountIntent == null) {
+            showNotInstalledAlert();
+        } else {
+            startActivity(openWithStagingDiscountIntent);
+        }
+    }
 }
+
