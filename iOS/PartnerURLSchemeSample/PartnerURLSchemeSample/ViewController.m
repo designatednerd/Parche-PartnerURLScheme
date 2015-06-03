@@ -45,16 +45,21 @@
 - (IBAction)openAppWithoutDiscount
 {
     if (![PARPartnerURLSchemeHelper openParcheWithAPIKey:@"YOUR_API_KEY"]) {
-        //NOTE: Use NSLocalizedString in anything that actually faces your users.
-        [self showSimpleAlertVCWithTitle:@"Ruh Roh!" message:@"You do not have a version of Parche which supports the URL scheme installed."];
+        [self showNotInstalledAlert];
     }
 }
 
 - (IBAction)openAppWithFakeDiscount
 {
     if (![PARPartnerURLSchemeHelper openParcheAndRequestDiscountForUser:@"Partner User ID" discountCode:@"DISCOUNT_CODE" apiKey:@"FAKE_API_KEY"]) {
-        [self showSimpleAlertVCWithTitle:@"Ruh Roh!" message:@"You do not have a version of Parche which supports the URL scheme installed."];
+        [self showNotInstalledAlert];
     }
+}
+
+- (void)showNotInstalledAlert
+{
+    //NOTE: Use NSLocalizedString in anything that actually faces your users.
+    [self showSimpleAlertVCWithTitle:@"Ruh Roh!" message:@"You do not have a version of Parche which supports the URL scheme installed."];
 }
 
 - (void)showSimpleAlertVCWithTitle:(NSString *)title message:(NSString *)message
